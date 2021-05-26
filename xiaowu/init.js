@@ -7,6 +7,8 @@ const { xueShenGLi } = require('./xueShenGLi');
 const { teacherGLi } = require('./teacherGLi');
 const { orderListGLi } = require('./orderList');
 const { classGli } = require('./classGli');
+const { buyClass } = require('./buyClass');
+const { addStudent } = require('./addStudent');
 /**
  * 基础驱动器
  * */
@@ -39,7 +41,11 @@ const { classGli } = require('./classGli');
         // await orderListGLi.init(driver);
         // 执行班级管理
         await driver.findElement(By.css('span[serarchkey="课程管理"]')).click();
+        // 执行新增学生接口
+        await addStudent.init(driver)
         await classGli.init(driver);
+        // 执行购买班级
+        await buyClass.init(driver);
         // await driver.sleep(200)
         // await driver.findElement(By.css('span[serarchkey="人员管理"]')).click();
         // // 执行 老师管理 基础驱动
