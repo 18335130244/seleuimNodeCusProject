@@ -21,7 +21,7 @@ function logs(text, tipsText = '') {
             elementSecond: 100,
         }
         // 进入全脑首页
-        await driver.get('https://dev-tendency.huanyujun.com/');
+        await driver.get('https://uat-tendency.huanyujun.com/');
         // 所有可以被选中的内容部分
         let boxClass = '.problemList:not([style="display: none;"]) '
         // clickClassName 需要被点击的姓名  需要被点击的数量

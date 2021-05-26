@@ -21,7 +21,7 @@ function logs(text, tipsText = '') {
             elementSecond: 100,
         }
         // 进入全脑首页
-        await driver.get('https://dev-tendency.huanyujun.com/');
+        await driver.get('https://tendency.huanyujun.com/#/home?appId=090909&callBack=aHR0cHM6Ly9wcmUtbS5ndGVkdS5jb20vIy90ZW5kZW5jeVJlcG9ydA==&statusBarHeight=31.0&terminal=Android&appRegion=tw&lang=zhTW&userID=dae8766f7af2d5c4239f7d0e9e890a19&loginPhone=18845888331&token=d025e458395a4857b840790517dd78ba');
         // 所有可以被选中的内容部分
         let boxClass = '.problem-list:not([style="display: none;"]) '
         // clickClassName 需要被点击的姓名  需要被点击的数量
@@ -40,15 +40,15 @@ function logs(text, tipsText = '') {
             // 下一题
             await driver.findElement(By.css('.fr')).click()
             logs(Q, ' 执行完毕')
-            await driver.sleep(awaitObj.buttonSecond)
+            await driver.sleep(awaitObj.buttonSecond * 2)
         }
         // 设置当前窗口大小 适应因该测试的区域位置
         // await nowWindowInstance.setRect({width: 300, height: 1000});
         // 等待 1 秒 资源加载完毕
         await driver.sleep(awaitObj.pageSecond)
         // 进入儿童版本测试
-        await driver.findElement(By.css('.all-nao-img:nth-child(2)')).click();
-        await driver.sleep(awaitObj.buttonSecond)
+        // await driver.findElement(By.css('.all-nao-img:nth-child(2)')).click();
+        // await driver.sleep(awaitObj.buttonSecond)
         // 进入测验按钮是否存在
         await driver.findElement(By.css('.btn.fr')).click();
         await driver.sleep(awaitObj.buttonSecond)
@@ -92,6 +92,7 @@ function logs(text, tipsText = '') {
         await implementationProcess('Q19','.van-checkbox',1)
         await driver.sleep(2000)
         logs('生成报告')
+        await driver.sleep(5000)
         let nowActiveCurrentUrl = await driver.getCurrentUrl();
         logs('报告链接',nowActiveCurrentUrl)
     } finally {

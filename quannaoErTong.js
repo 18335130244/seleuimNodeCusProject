@@ -21,7 +21,7 @@ function logs(text, tipsText = '') {
             elementSecond: 100,
         }
         // 进入全脑首页
-        await driver.get('https://dev-tendency.huanyujun.com/');
+        await driver.get('https://uat-tendency.huanyujun.com/');
         // 所有可以被选中的内容部分
         let boxClass = '.problemContent:not([style="display: none;"]) '
         // 实例化 当前 window 对象
@@ -209,6 +209,7 @@ function logs(text, tipsText = '') {
         // 进入 Q12 测试题 题干
         await mouseMovementEventQ12('Q12')
         logs('生成报告')
+        await driver.sleep(5000)
         let nowActiveCurrentUrl = await driver.getCurrentUrl();
         logs('报告链接',nowActiveCurrentUrl)
     } finally {
